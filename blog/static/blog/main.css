@@ -1,0 +1,53 @@
+.h-1 {
+  font-family: Garamond, Georgia,Times, serif;
+  font-size: 35px;
+  color: black;
+}
+.center-it {
+  text-align: center;
+  padding:  90px;
+}
+
+#lilH{
+  font-family: Helvetica;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+.bigBody{
+    margin-left: 45px;
+  margin-right: 45px;
+  
+
+}
+#homeNav{
+  margin-left: 40px;
+  margin-right: 40px;
+  padding: 15px; 
+  margin-bottom: 30px;
+}
+
+
+h2{
+  font-family: Times, serif;font-size: 20px;
+}
+p{font-family: Arial, Helvetica;font-size: 12px;}
+
+.grid-container {
+  display: grid;
+  margin-left: 45px;
+  margin-right: 45px;
+  justify-content: center;
+  border-color:  black;
+  border:  1px solid black;
+    grid-template-columns: auto auto auto;
+}
+#container-in-grid{
+  padding: 30px;
+  border: 1px solid black;
+}
+#post-in-container{border: 1px solid black; padding 20px}
+
+ul{
+      padding-inline-start: 40px;
+      display:  block;
+}

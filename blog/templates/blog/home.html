@@ -1,0 +1,91 @@
+{% extends "blog/base.html" %}
+{% block tabtitle %} 
+<title>La Journal</title>
+{% endblock tabtitle %}
+{% block postscontent %} 
+
+
+{% for post in posts %}
+ {% if forloop.counter <= 12 %}
+	<div class="col mb-5">
+
+  	  <div class="card h-100">
+            <!-- Sale badge-->
+            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Post</div>
+                <!-- Product image-->
+            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                <!-- Product details-->
+                <div class="card-body p-4">
+                    <div class="text-center">
+                    <!-- Product name-->
+                        <h5 class="fw-bolder">{{ post.title }}</h5>
+                        <!-- Product reviews-->
+                        <div class="d-flex justify-content-center small text-warning mb-2">
+                            <div class="bi-star-fill"></div>
+                            <div class="bi-star-fill"></div>
+                            <div class="bi-star-fill"></div>
+                            <div class="bi-star-fill"></div>
+                            <div class="bi-star-fill"></div>
+                              </div>
+                                    <!-- Product price-->
+                                
+                                  {{ post.post_content }}
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">by {{ post.author }}</a></div>
+                            </div>
+                        </div>
+                    </div>	
+   
+
+
+
+{% endif %}
+{% endfor %}
+{% endblock postscontent %}
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	{% load static %}
+
+	<link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
+	
+	<title>Home</title>
+	<div id="homeNav">
+		 
+		<div id="lilH" style="float: left;">HOME EXPLORE ABOUT HELP</div>
+		<div id="lilH" style="float: right">LOGIN | REGISTER</div>
+	</div>
+
+
+</head>
+
+<body>
+
+	<div class="center-it">
+		<h1 class="h-1" style="margin-bottom:-10px;letter-spacing: 2.5px;">LE JOURNAL</h1>
+		<img src="{% static 'kissclip.png'%}">
+	</div>
+	<div class="grid-container">
+	{% for post in posts %}
+		<div id="container-in-grid">
+			<div id="post-in-container">
+			<h2 id="h">	{{ post.title }}</h2>
+			<p>By {{post.author}} on {{post.date_posted|date:"F d, Y" }}</p>
+			<p> {{post.post_content}}</p>
+		</div>
+		</div>
+
+	{% endfor %}
+	</div>
+</body>
+	
+</body>
+</html> -->
+
+
+

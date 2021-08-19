@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-      	{% block tabtitle %} {% endblock tabtitle %}
+      	{% block tabtitle %}<title>La Journal</title> {% endblock tabtitle %}
         <!-- Favicon-->
         <link rel="icon" href="{% static 'kissclip.png' %}" />
         <!-- Bootstrap icons-->
@@ -23,7 +23,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link" aria-current="page" href="{% url 'site-home' %}">HOME</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'site-home' %}">HOME</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">ABOUT</a></li> <li class="nav-item"><a class="nav-link" href="#!">EXPLORE</a>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="#!">HELP</a>
@@ -39,12 +39,18 @@
                         </btn>
                     </form>
                   	{% endif %}
+                  	{% if user.is_authenticated %}
+                    <a class="nav-link" href="{% url 'post-create' %}"><strong>NEW POST</strong></a>
+
+	             
+                  	{% endif %}
                   {% if user.is_authenticated %}
                   	  <a class="nav-link" href="{% url 'logout' %}"><strong>LOG OUT</strong></a>
              
                    {% else %}
                      <a class="nav-link" href="{% url 'login' %}">LOG IN</a>
                     {% endif %}
+
                    
                 </div>
             </div>

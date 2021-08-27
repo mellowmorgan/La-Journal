@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
-# Create your views here.
+from django.core.mail import send_mail
+
 def register(request):
 	if request.method == 'POST':
 		form = UserRegisterForm(request.POST)
@@ -33,3 +34,9 @@ def profile(request):
 	
 	context = {'u_form': u_form, 'p_form':  p_form}
 	return render(request, 'users/profile.html', context)
+
+# def contact(request):
+# 	#if request.method == "POST":
+# 	send_mail(
+
+# 		)

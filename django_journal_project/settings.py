@@ -125,6 +125,16 @@ USE_TZ = True
 #STATIC_ROOT = "/Users/morganwaites/Documents/django_journal_project/blog/static"
 STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK='bootstrap4'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# Host for sending e-mail.
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'morgan.waites@gmail.com'
+EMAIL_HOST_PASSWORD = 'lilith9735'
+DEFAULT_FROM_EMAIL = '<anything you want>'
+
 LOGIN_REDIRECT_URL='site-home'
 LOGIN_URL = 'login'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

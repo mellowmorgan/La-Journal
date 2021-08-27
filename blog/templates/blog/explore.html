@@ -1,12 +1,12 @@
 {% extends "blog/base.html" %}
 {% block tabtitle %} 
-<title>La Journal | Home</title>
+<title>La Journal | Explore</title>
 {% endblock tabtitle %}
 {% block postscontent %} 
 
 
 {% for post in posts %}
- {% if forloop.counter <= 20 %}
+
 	<div class="col mb-5">
 
   	  <div class="card h-100">
@@ -18,7 +18,7 @@
                 <div class="card-body p-4">
                     <div class="text-center">
                     <!-- Product name-->
-                        <a href="{% url 'post-detail' post.id %}"> <h5 class="fw-bolder">{{ post.title }}</h5></a>
+                        <h5 class="fw-bolder">{{ post.title }}</h5>
                         <!-- Product reviews-->
                         <div class="d-flex justify-content-center small text-warning mb-2">
                             <div class="bi-star-fill"></div>
@@ -40,19 +40,12 @@
                         <h5 class="fw-bolder">{{ post.date_posted }}</h5>
                        </div>
                             </div>
-                            <div>
-                            	{% for tag in tags %}
-                            	{% if tag.post_master == post %}
-                            		{{tag}}
-                            	{% endif %}
-                            	{% endfor %}
-                            </div>
                         </div>
                     </div>	
    
 
 
 
-{% endif %}
 {% endfor %}
 {% endblock postscontent %}
+

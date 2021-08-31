@@ -16,7 +16,7 @@
                 <div class="card-body p-4">
                     <div class="text-center">
                     <!-- Product name-->
-                        <h5 class="fw-bolder">{{object.title }}</h5>
+                        <h5 class="fw-bolder">{{post.title }}</h5>
                         <!-- Product reviews-->
                         <div class="d-flex justify-content-center small text-warning mb-2">
                             <div class="bi-star-fill"></div>
@@ -27,22 +27,37 @@
                               </div>
                                     <!-- Product price-->
                                 
-                                  {{ object.post_content }}
+                                  {{ post.post_content }}
                                 </div>
                             </div>
-                            <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">by {{ object.author }}</a></div>
+
+
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'user-blog' post.author %}">by {{ post.author }}</a></div>
                                  <div class="text-center">
 
-                        <h5>{{ object.date_posted }}</h5>
-                        {% if object.author == user %}
+                        <h5>{{ post.date_posted }}</h5>
+                        
+                        {% if post.author == user %}
                             <a class="btn btn-secondary mt-1 mb-1" href="{% url 'post-update' object.id %}">Edit</a>
                             <a class="btn btn-danger mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
 
                         {% endif %}
                        </div>
                             </div>
+                          <!--     
+                                {% for tag in tags %}
+                                {% if tag.post_master == post %}
+                               Tags:  
+                                {% for tag in tags %}
+                                {% if tag.post_master == post %}
+                                   <button class="tag-btn"> {{tag}} </button>
+                                {% endif %}
+                                {% endfor %}
+                                {% endif %}
+                                {{break}}
+                                {% endfor %}
+                          -->  
                         </div>
                     </div>  
    

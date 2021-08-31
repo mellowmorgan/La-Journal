@@ -132,7 +132,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'morgan.waites@gmail.com'
-EMAIL_HOST_PASSWORD = 'lilith9735'
+EMAIL_HOST_PASSWORD = ''
 DEFAULT_FROM_EMAIL = '<anything you want>'
 
 LOGIN_REDIRECT_URL='site-home'

@@ -1,22 +1,21 @@
-
-{% extends 'blog/base.html' %}
-
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
 {% block tabtitle %} 
-
-
-{% for object in object_list %}
-<title>{{ object.author }}</title> {{ break }}
-{% endfor %}
-
+<title>La Journal | Explore</title>
 {% endblock tabtitle %}
 {% block content %}
+<div style="width: 100%">
+<form method=GET class="form-parent" action="{% url 'search-results' %}">
+	
+	<input type="search" placeholder="Search Blogs..." name="searched">
+	<button type="submit">Search</button>
+</form>
 
-
-{% endblock content %}
-
-{% block postscontent %} 
-
-{% for object in object_list %}
+{% if searched %}
+	Search results for "{{searched}}":
+</div>
+	{% if post_results %}
+	{% for post in post_results %}
 
 	<div class="col mb-5">
 
@@ -24,12 +23,12 @@
             <!-- Sale badge-->
             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Post</div>
                 <!-- Product image-->
-            <img class="card-img-top" src="{{ object.author.profile.profile_pic.url }}" alt="..." />
+            <img class="card-img-top" src="{{ post.author.profile.profile_pic.url }}" alt="..." />
                 <!-- Product details-->
                 <div class="card-body p-4">
                     <div class="text-center">
                     <!-- Product name-->
-                       <a href="{% url 'post-detail' object.id %}"> <h5 class="fw-bolder">{{ object.title }}</h5></a>
+                       <a href="{% url 'post-detail' post.id %}"> <h5 class="fw-bolder">{{ post.title }}</h5></a>
                         <!-- Product reviews--> 
                         <div class="d-flex justify-content-center small text-warning mb-2">
                             <div class="bi-star-fill"></div>
@@ -40,15 +39,15 @@
                               </div>
                                     <!-- Product price-->
                                 
-                                  {{ object.post_content }}
+                                  {{ post.post_content }}
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">by {{ object.author }}</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'user-blog' post.author %}">by {{ post.author }}</a></div>
                                  <div class="text-center">
 
-                        <h5 class="fw-bolder">{{ object.date_posted }}</h5>
+                        <h5 class="fw-bolder">{{ post.date_posted }}</h5>
                        </div>
                             </div>
                         </div>
@@ -57,4 +56,11 @@
 
 
 {% endfor %}
-{% endblock postscontent %}
+
+{% endif %}
+{% if not post_results %}
+Your search returned 0 results.
+{% endif %}
+{% endif %}
+
+{% endblock content %}

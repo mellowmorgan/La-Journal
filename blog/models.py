@@ -20,6 +20,8 @@ class Post(models.Model):
 	
 	#DateTimeField(auto_now_add) or try timezone.now()ß
 	author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
 	def __str__(self):
 		return self.title
 
@@ -29,12 +31,12 @@ class Post(models.Model):
 
 
 
-class Tag(models.Model):
-	author = models.ForeignKey(User, on_delete=models.CASCADE)
-	name = models.CharField(max_length=100)
-	post_master = models.ForeignKey(Post, on_delete=models.CASCADE)
-	def __str__(self):
-		return self.name
+# class Tag(models.Model):
+# 	author = models.ForeignKey(User, on_delete=models.CASCADE)
+# 	name = models.CharField(max_length=100)
+# 	post_master = models.ForeignKey(Post, on_delete=models.CASCADE)
+# 	def __str__(self):
+# 		return self.name
 		
 
 

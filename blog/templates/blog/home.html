@@ -40,13 +40,19 @@
                         <h5 class="fw-bolder">{{ post.date_posted }}</h5>
                        </div>
                             </div>
-                            <div>
-                            	{% for tag in tags %}
-                            	{% if tag.post_master == post %}
-                            		{{tag}}
-                            	{% endif %}
-                            	{% endfor %}
-                            </div>
+                                
+                           <!--      {% for tag in tags %}
+                                {% if tag.post_master == post %}
+                               Tags:  
+                                {% for tag in tags %}
+                                {% if tag.post_master == post %}
+                                   <button class="tag-btn"> {{tag}} </button>
+                                {% endif %}
+                                {% endfor %}
+                                {% endif %}
+                                {{break}}
+                                {% endfor %} -->
+                           
                         </div>
                     </div>	
    

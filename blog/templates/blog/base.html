@@ -24,9 +24,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" aria-current="page" href="{% url 'site-home' %}">HOME</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">ABOUT</a></li> <li class="nav-item"><a class="nav-link" href="{% url 'explore-page' %}">EXPLORE</a>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'site-about' %}">ABOUT</a></li> <li class="nav-item"><a class="nav-link" href="{% url 'explore-page' %}">EXPLORE</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#!">HELP</a>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'site-help' %}">HELP</a>
                         </li>
                     </ul>
                     
@@ -44,7 +44,7 @@
 
                   	{% if user.is_authenticated %}
                   	
-                    <a class="nav-link" href="{% url 'user-blog' user.username %}">MY BLOG</a>
+                    <a class="nav-link" href="{% url 'user-blog' user.username %}">BLOG</a>
           
 	           
                    

@@ -4,3 +4,21 @@
 <title> La Journal | About </title>
 
 {% endblock tabtitle %}
+
+{% block content %}
+<div style="width: 100%;">
+<p>
+La Journal is a place to share your stories, your life, your passions. 
+</p>
+<p>
+No judgment. No boundaries.
+</p>
+<p>
+Create your own blog for free. All you need is an email address to get started.
+</p>
+</div>
+<button class="btn btn-outline-dark" onclick="window.location.href='{% url 'register' %}';">
+                            Get Started
+                        </button>
+
+{% endblock content %}

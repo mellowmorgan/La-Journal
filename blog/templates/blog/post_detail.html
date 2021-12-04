@@ -8,21 +8,21 @@
 <div id="content">
 
 
-    <legend class="border-bottom mb-4"><h5 class="fw-bolder">{{post.title }}</h5></legend>
+    <legend class="border-bottom mb-4">{{post.title }}</legend>
                    
                      <div class="post-body add-bottom-padding">
                                 
-                                  {{ post.post_content }}
+                                  <div id="post-content">{{ post.post_content }}</div>
 
 </div>
-                                <div class="text-center add-bottom-padding"><a class="btn btn-outline-dark mt-auto" href="{% url 'user-blog' post.author %}">by {{ post.author }}</a></div>
+                                <div class="text-center add-bottom-padding"><a href="{% url 'user-blog' post.author %}"><h5 class="fw-bolder">by {{ post.author }}</h5></a></div>
                                  <div class="text-center">
 
                         <h6 class="fw-bolder">{{ post.date_posted }}</h6>
                         
                         {% if post.author == user %}
-                            <a class="btn btn-secondary mt-1 mb-1" href="{% url 'post-update' object.id %}">Edit</a>
-                            <a class="btn btn-danger mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+                            <a id="edit-btn" class="btn btn-secondary mt-1 mb-1" href="{% url 'post-update' object.id %}">Edit</a>
+                            <a id="delete-btn" class="btn btn-danger mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
 
                         {% endif %}
                        </div>

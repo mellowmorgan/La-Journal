@@ -5,14 +5,28 @@
 {% endblock tabtitle %}
 {% block content %}
 <div style="width: 100%">
-<form method=GET class="form-parent" action="{% url 'search-results' %}">
-	
-	<input type="search" placeholder="Search Blogs..." name="searched">
-	<button type="submit">Search</button>
+
+<div class="fill-page-center" id="content">
+<form method=GET action="{% url 'search-results' %}" class="form-parent">
+    {% csrf_token %}
+    <fieldset class="form-group">
+                <legend class="border-bottom mb-4">
+                    Explore Blogs</legend>
+            </fieldset>
+                    
+            <div class="form-group">
+    <input id="search-input" class="text-input textInput form-control" type="search" placeholder="Search keyword/title..." name="searched">
+    <button class="btn btn-outline-dark mt-auto" type="submit">Search</button>
+</div>
 </form>
 
+</div>
+
+
+
 {% if searched %}
-	Search results for "{{searched}}":
+	<p> Search results for "{{searched}}":</p>
+
 </div>
 	{% if post_results %}
 	{% for post in post_results %}

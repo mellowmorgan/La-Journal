@@ -32,11 +32,7 @@
                        <a href="{% url 'post-detail' object.id %}"> <h5 class="fw-bolder">{{ object.title }}</h5></a>
                         <!-- Product reviews--> 
                         <div class="d-flex justify-content-center small text-warning mb-2">
-                            <div class="bi-star-fill"></div>
-                            <div class="bi-star-fill"></div>
-                            <div class="bi-star-fill"></div>
-                            <div class="bi-star-fill"></div>
-                            <div class="bi-star-fill"></div>
+                
                               </div>
                                     <!-- Product price-->
                                 
@@ -45,7 +41,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">by {{ object.author }}</a></div>
+                                <div class="add-bottom-padding text-center"><a class="btn btn-outline-dark mt-auto" href="#">by {{ object.author }}</a></div>
                                  <div class="text-center">
 
                         <h5 class="fw-bolder">{{ object.date_posted }}</h5>

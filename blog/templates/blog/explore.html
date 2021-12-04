@@ -3,13 +3,23 @@
 {% block tabtitle %} 
 <title>La Journal | Explore</title>
 {% endblock tabtitle %}
-{% block postscontent %} 
+{% block content %} 
+<div class="fill-page-center" id="content">
 <form method=GET action="{% url 'search-results' %}" class="form-parent">
-	
-	<input type="search" placeholder="Search Blogs..." name="searched">
-	<button type="submit">Search</button>
+	{% csrf_token %}
+	<fieldset class="form-group">
+				<legend class="border-bottom mb-4">
+					Explore Blogs</legend>
+			</fieldset>
+					
+			<div class="form-group">
+	<input id="search-input" class="text-input textInput form-control" type="search" placeholder="Search keyword/title..." name="searched">
+	<button class="btn btn-outline-dark mt-auto" type="submit">Search</button>
+</div>
 </form>
 
+</div>
 
-{% endblock postscontent %}
+{% endblock content %}
+
 

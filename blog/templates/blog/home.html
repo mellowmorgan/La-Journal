@@ -21,11 +21,7 @@
                         <a href="{% url 'post-detail' post.id %}"> <h5 class="fw-bolder">{{ post.title }}</h5></a>
                         <!-- Product reviews-->
                         <div class="d-flex justify-content-center small text-warning mb-2">
-                            <div class="bi-star-fill"></div>
-                            <div class="bi-star-fill"></div>
-                            <div class="bi-star-fill"></div>
-                            <div class="bi-star-fill"></div>
-                            <div class="bi-star-fill"></div>
+             
                               </div>
                                     <!-- Product price-->
                                 
@@ -34,25 +30,14 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'user-blog' post.author %}">by {{ post.author }}</a></div>
+                                <div class="text-center add-bottom-padding"><a class="btn btn-outline-dark mt-auto" href="{% url 'user-blog' post.author %}">by {{ post.author }}</a></div>
                                  <div class="text-center">
 
-                        <h5 class="fw-bolder">{{ post.date_posted }}</h5>
+                        <h6 class="fw-bolder">{{ post.date_posted }}</h6>
                        </div>
                             </div>
                                 
-                           <!--      {% for tag in tags %}
-                                {% if tag.post_master == post %}
-                               Tags:  
-                                {% for tag in tags %}
-                                {% if tag.post_master == post %}
-                                   <button class="tag-btn"> {{tag}} </button>
-                                {% endif %}
-                                {% endfor %}
-                                {% endif %}
-                                {{break}}
-                                {% endfor %} -->
-                           
+                          
                         </div>
                     </div>	
    

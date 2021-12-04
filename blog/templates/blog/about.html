@@ -6,17 +6,17 @@
 {% endblock tabtitle %}
 
 {% block content %}
-<div style="width: 100%;">
+<div id="content">
 <p>
 La Journal is a place to share your stories, your life, your passions. No judgment. No boundaries.
 </p>
-<p>Create your own blog for free. All you need is an email address to get started. Sign up <a href="{% url 'register' %}">here</a>!</p>
+<p>Create your own blog for free. All you need is an email address to get started.</p>
 <p>
-This web application was built by Morgan Waites with Python programming language and Djago web framework, launched with Heroku. The database is built with SQLite. This site is not production-ready, but primarily for portfolio and learning purposes.
+This web application was built by Morgan Waites with Python programming language and Django web framework. The database is built with SQLite. This site is not production-ready, but primarily for portfolio and learning purposes.
 </p>
 
 </div>
-<button class="btn btn-outline-dark" onclick="window.location.href='{% url 'register' %}';">
+<button id="get-started" class="btn btn-outline-dark" onclick="window.location.href='{% url 'register' %}';">
                             Get Started
                         </button>
 

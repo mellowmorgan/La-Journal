@@ -3,40 +3,22 @@
 {% block tabtitle %} 
 <title>La Journal</title>
 {% endblock tabtitle %}
-{% block postscontent %}
+{% block content %}
 
-<div class="col mb-5">
+<div id="content">
 
-      <div class="card h-100">
-            <!-- Sale badge-->
-            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Post</div>
-                <!-- Product image-->
-            <img class="card-img-top" src="{{ post.author.profile.profile_pic.url }}" alt="..." />
-                <!-- Product details-->
-                <div class="card-body p-4">
-                    <div class="text-center">
-                    <!-- Product name-->
-                        <h5 class="fw-bolder">{{post.title }}</h5>
-                        <!-- Product reviews-->
-                        <div class="d-flex justify-content-center small text-warning mb-2">
-                            <div class="bi-star-fill"></div>
-                            <div class="bi-star-fill"></div>
-                            <div class="bi-star-fill"></div>
-                            <div class="bi-star-fill"></div>
-                            <div class="bi-star-fill"></div>
-                              </div>
-                                    <!-- Product price-->
+
+    <legend class="border-bottom mb-4"><h5 class="fw-bolder">{{post.title }}</h5></legend>
+                   
+                     <div class="post-body add-bottom-padding">
                                 
                                   {{ post.post_content }}
-                                </div>
-                            </div>
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 
-
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'user-blog' post.author %}">by {{ post.author }}</a></div>
+</div>
+                                <div class="text-center add-bottom-padding"><a class="btn btn-outline-dark mt-auto" href="{% url 'user-blog' post.author %}">by {{ post.author }}</a></div>
                                  <div class="text-center">
 
-                        <h5>{{ post.date_posted }}</h5>
+                        <h6 class="fw-bolder">{{ post.date_posted }}</h6>
                         
                         {% if post.author == user %}
                             <a class="btn btn-secondary mt-1 mb-1" href="{% url 'post-update' object.id %}">Edit</a>
@@ -44,28 +26,14 @@
 
                         {% endif %}
                        </div>
-                            </div>
-                          <!--     
-                                {% for tag in tags %}
-                                {% if tag.post_master == post %}
-                               Tags:  
-                                {% for tag in tags %}
-                                {% if tag.post_master == post %}
-                                   <button class="tag-btn"> {{tag}} </button>
-                                {% endif %}
-                                {% endfor %}
-                                {% endif %}
-                                {{break}}
-                                {% endfor %}
-                          -->  
-                        </div>
+                            
                     </div>  
    
 
 
 
 
-{% endblock postscontent %}
+{% endblock content %}
 
 <!-- 
 <!DOCTYPE html>

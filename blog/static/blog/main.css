@@ -30,6 +30,9 @@
 h2{
   font-family: Times, serif;font-size: 20px;
 }
+.add-bottom-padding{
+  padding-bottom: 1.5rem;
+}
 p{font-family: Arial, Helvetica;font-size: 12px;}
 
 .grid-container {

@@ -4,6 +4,8 @@ By Morgan Waites
 
 Site for making blog posts showing CRUD functionality with user accounts and blog posts.
 
+*In development currently*
+
 ## Technologies Used
 * Python
 * Django framework
@@ -14,7 +16,7 @@ Site for making blog posts showing CRUD functionality with user accounts and blo
 * Email server for getting new password not set up.
 * HTML/CSS is v ugly on some parts of website; needs tweaking with styling.
 
-## Link to site
+## Set Up/Installation
 * git clone this repository.
 * navigate into top-level of directory
 * pip install -r requirements.txt

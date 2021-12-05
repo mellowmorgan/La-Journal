@@ -18,11 +18,12 @@
                                 <div class="text-center add-bottom-padding"><a href="{% url 'user-blog' post.author %}"><h5 class="fw-bolder">by {{ post.author }}</h5></a></div>
                                  <div class="text-center">
 
-                        <h6 class="fw-bolder">{{ post.date_posted }}</h6>
+                        <h6 class="add-bottom-padding fw-bolder">{{ post.date_posted }}</h6>
                         
                         {% if post.author == user %}
-                            <a id="edit-btn" class="btn btn-secondary mt-1 mb-1" href="{% url 'post-update' object.id %}">Edit</a>
-                            <a id="delete-btn" class="btn btn-danger mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+                            <a href="{% url 'post-update' post.id %}" class="btn btn-outline-secondary" type="submit">Edit</a> 
+                           
+                            <a class="btn btn-outline-danger" href="{% url 'post-delete' post.id %}">Delete</a>
 
                         {% endif %}
                        </div>

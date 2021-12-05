@@ -42,11 +42,27 @@
 *::after {
   box-sizing: border-box;
 }
+#id_profile_pic{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+#div_id_profile_pic label{
+  margin-bottom: 1rem;
+}
+#div_id_email{
+  margin-bottom: 1rem;
+}
 
+#div_id_profile_pic div a{
+  margin-bottom: 1rem;
+}
 @media (prefers-reduced-motion: no-preference) {
   :root {
     scroll-behavior: smooth;
   }
+}
+.underline-none{
+  text-decoration: none;
 }
 .blog-post{
   width: 90% ;
@@ -59,7 +75,6 @@
   margin-bottom: 1rem;
 }
 #edit-btn{
-  width: 8%;
   background-color: #e69296;
   border-color: #e69296;
 
@@ -72,9 +87,6 @@
     background-color:#e17d82;
     border-color: #e17d82;
    box-shadow: 0 0 0 0.25rem rgb(230,146,150,.5);
-}
-#delete-btn{
-  width: 8%;
 }
 
  html { overflow-y:scroll; }
@@ -4442,6 +4454,7 @@ textarea.form-control-lg {
 .card-img-top,
 .card-img-bottom {
   width: 100%;
+  max-height: 450px;
 }
 
 .card-img,

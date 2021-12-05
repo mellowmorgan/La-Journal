@@ -10,47 +10,27 @@
 
 {% endblock tabtitle %}
 {% block content %}
+{% for object in object_list %}
+<div id="content">
 
+
+    <legend class="border-bottom mb-4"><a class="underline-none" href="{% url 'post-detail' object.id %}">{{object.title }}</a></legend> 
+                   
+                     <div class="post-body add-bottom-padding">
+                                
+                                  <div id="post-content">{{ object.post_content }}</div>
+
+</div>
+                                <div class="text-center add-bottom-padding"><a href="#"><h5 class="fw-bolder">by {{ object.author }}</h5></a></div>
+                                 <div class="text-center">
+
+                        <h6 class="fw-bolder">{{ object.date_posted }}</h6>
+                       
+                       </div>
+                            
+                    </div>  
+{% endfor %}
 
 {% endblock content %}
 
-{% block postscontent %} 
 
-{% for object in object_list %}
-
-	<div class="col mb-5">
-
-  	  <div class="card h-100">
-            <!-- Sale badge-->
-            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Post</div>
-                <!-- Product image-->
-            <img class="card-img-top" src="{{ object.author.profile.profile_pic.url }}" alt="..." />
-                <!-- Product details-->
-                <div class="card-body p-4">
-                    <div class="text-center">
-                    <!-- Product name-->
-                       <a href="{% url 'post-detail' object.id %}"> <h5 class="fw-bolder">{{ object.title }}</h5></a>
-                        <!-- Product reviews--> 
-                        <div class="d-flex justify-content-center small text-warning mb-2">
-                
-                              </div>
-                                    <!-- Product price-->
-                                
-                                  {{ object.post_content }}
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="add-bottom-padding text-center"><a class="btn btn-outline-dark mt-auto" href="#">by {{ object.author }}</a></div>
-                                 <div class="text-center">
-
-                        <h5 class="fw-bolder">{{ object.date_posted }}</h5>
-                       </div>
-                            </div>
-                        </div>
-                    </div>	
-   
-
-
-{% endfor %}
-{% endblock postscontent %}

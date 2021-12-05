@@ -33,12 +33,3 @@ class Profile(models.Model):
 			img.thumbnail(output_size)
 			img.save(self.profile_pic.path) 
 	
-
-#get tuple of h, w tupe using shape t[0]=h t[1]=w find out which which put into variables then figure out how to resize re aspect ratio put here
-#if h greater than width, if h bigger than 500 do resize with percentages
-
-#1000x400
-
-#whatever to get down to 500 .5*original resize down .5x original 
-
-#vice versa, both need to be less than 500, do too if/else one for width one for heigh

@@ -67,6 +67,11 @@
 .blog-post{
   width: 90% ;
 }
+.card-body-text{
+   max-height: 25vh;
+   overflow-y: scroll;
+}
+
 .form-parent > * {
     margin: 20px 0;
 }
@@ -656,6 +661,11 @@ progress {
 
 }
 #post-content{
+
+   white-space: pre-wrap;
+  text-align: justify !important;
+  text-indent: 0px;
+ 
 }
 
 .content-section{

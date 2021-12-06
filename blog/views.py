@@ -10,6 +10,8 @@ from django.core.mail import BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import ContactForm
 from django.contrib import messages
+import smtplib
+from smtplib import *
 
 def home(request):
 	context = {
@@ -35,8 +37,13 @@ def contactView(request):
                 send_mail(subject, message, from_email, ['morgan.waites@gmail.com'])
             except BadHeaderError:
             	return HttpResponse('Invalid header found.')
+            except SMTPResponseException as e:
+            	return HttpResponse('Email contact is not functional currently. Apologies.')
             messages.success(request, "Thank you for contacting us. Your email has been sent.")
             return redirect('site-help')
+        
+
+
     return render(request, "blog/help.html", {'form': form})
 
 def successView(request):

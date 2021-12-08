@@ -123,7 +123,7 @@ USE_TZ = True
 #STATICFILES_DIRS = [
 #    "/Users/morganwaites/Documents/django_journal_project/blog/static",
 #]
-#STATIC_ROOT = "/Users/morganwaites/Documents/django_journal_project/blog/static"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK='bootstrap4'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

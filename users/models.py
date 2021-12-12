@@ -4,11 +4,11 @@ from PIL import ExifTags, ImageOps
 from django.contrib.auth.models import User
 
 class Profile(models.Model):
-	user_referring = models.OneToOneField(User, on_delete=models.CASCADE)
+	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	profile_pic = models.ImageField(default='anon.png', upload_to='profile-pics')
 
 	def __str__(self):
-		return "{} Profile".format(self.user_referring.username)
+		return "{} Profile".format(self.user.username)
 
 	def save(self, *args, **kwargs):
 		super().save(*args, **kwargs)

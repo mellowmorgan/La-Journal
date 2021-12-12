@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-jnr&hvn$07v!ku$e8s3(f$$-@yfx5*(+2s8&*4(n#fbm!3jib4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['https://journal-django-project.herokuapp.com']
 
@@ -120,9 +120,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-#STATICFILES_DIRS = [
-#    "/Users/morganwaites/Documents/django_journal_project/blog/static",
-#]
+STATICFILES_DIRS = [
+   
+   "blog/static",
+]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK='bootstrap4'

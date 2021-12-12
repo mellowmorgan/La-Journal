@@ -2,6 +2,8 @@ from . import views
 from .views import PostDetailView, PostListView, PostCreateView, PostUpdateView, PostDeleteView, PostUserListView
 from django.urls import path, re_path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
 	path('', PostListView.as_view(), name = "site-home"),
@@ -15,5 +17,5 @@ urlpatterns = [
 	path('blog/<str:username>/', PostUserListView.as_view(), name='user-blog'),
 	path('explore/', views.explore, name='explore-page'),
 	path('search-results/', views.SearchResults, name='search-results'),
-]
+]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) 
 

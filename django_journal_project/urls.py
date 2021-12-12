@@ -22,6 +22,8 @@ from django.urls import path, include
 from users import views as user_views
 from blog.views import PostUserListView
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("blog.urls")),
@@ -40,7 +42,7 @@ urlpatterns = [
     path('profile/', user_views.profile, name='profile'),
 
 
-]
+]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) 
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -9,6 +9,14 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+
+"""
+-Django Heroku checklist
+-fix styling of cards take post off make them fit with other cards of diff sizes
+-set up email server
+-allow user to delete account on profile page
+Debug to False
+"""
 import os
 from pathlib import Path
 import django_heroku

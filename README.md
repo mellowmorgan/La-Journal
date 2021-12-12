@@ -15,6 +15,7 @@ Site for making blog posts showing CRUD functionality with user accounts and blo
 ## Known bugs
 * Email server for getting new password not set up.
 * HTML/CSS is v ugly on some parts of website; needs tweaking with styling.
+* Need to add feature to delete accounts
 
 ## Set Up/Installation
 * git clone this repository.

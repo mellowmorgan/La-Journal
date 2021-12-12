@@ -125,13 +125,14 @@ USE_TZ = True
    
 #    "blog/static",
 # ]
-STATICFILES_DIRS= (os.path.join(BASE_DIR, 'static'),)
-#STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = '/static/'
+STATICFILES_DIRS= (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'ststicfiles')
+
 CRISPY_TEMPLATE_PACK='bootstrap4'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Host for sending e-mail.
 EMAIL_HOST = 'smtp.gmail.com'

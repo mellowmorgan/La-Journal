@@ -6,6 +6,10 @@ Site for making blog posts showing CRUD functionality with user accounts and blo
 
 *In development currently*
 
+See it here: 
+
+https://journal-django-project.herokuapp.com/ 
+
 ## Technologies Used
 * Python
 * Django framework

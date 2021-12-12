@@ -127,7 +127,7 @@ STATICFILES_DIRS = [
 ]
 #STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATIC_URL = '/staticfiles/'
+STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK='bootstrap4'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

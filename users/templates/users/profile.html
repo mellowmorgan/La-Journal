@@ -8,7 +8,7 @@
 <div class="media">
 	{% if user.profile.profile_pic %}
 	<img class="account-img" style="max-width:200px; max-height: 400px" src="{{ user.profile.profile_pic.url }}">
-{% endif %}
+	{% endif %}
 	
 	<div class="media-body">
 		<h2>{{ user.username }}</h2>

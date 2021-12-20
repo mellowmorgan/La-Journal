@@ -1,18 +1,20 @@
 from django.shortcuts import render, redirect
+
+from django_journal_project.settings import EMAIL_ADDRESS, EMAIL_PASSWORD
 from .models import Post
+import os
+from django.core.mail import EmailMessage
 # from .models import Tag
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, TemplateView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse
 from django.contrib import messages
-from django.core.mail import send_mail
 from django.core.mail import BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import ContactForm
 from django.contrib import messages
 import smtplib
 from smtplib import *
-
 def home(request):
 	context = {
 		'posts': Post.objects.all(),
@@ -25,26 +27,24 @@ def about(request):
 
 
 def contactView(request):
-    if request.method == 'GET':
-        form = ContactForm()
-    else:
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            subject = form.cleaned_data['subject']
-            from_email = form.cleaned_data['from_email']
-            message = form.cleaned_data['message']
-            try:
-                send_mail(subject, message, from_email, ['morgan.waites@gmail.com'])
-            except BadHeaderError:
-            	return HttpResponse('Invalid header found.')
-            except SMTPResponseException as e:
-            	return HttpResponse('Email contact is not functional currently. Apologies.')
-            messages.success(request, "Thank you for contacting us. Your email has been sent.")
-            return redirect('site-help')
-        
-
-
-    return render(request, "blog/help.html", {'form': form})
+	if request.method == 'GET':
+		form = ContactForm()
+	else:
+		form = ContactForm(request.POST)
+		if form.is_valid():
+			subject = form.cleaned_data['subject']
+			from_email = form.cleaned_data['from_email']
+			message = form.cleaned_data['message']
+			try:
+				email = EmailMessage(subject, message, 'bambigirlpdx@gmail.com',['bambigirlpdx@gmail.com'])
+				email.send()
+				messages.success(request, "Thank you for contacting us. Your email has been sent.")
+				return redirect('site-help')
+			except SMTPResponseException as e:
+				return HttpResponse('Email contact is not functional currently. Apologies.')
+			except BadHeaderError:
+				return HttpResponse('Invalid header found.')
+	return render(request, "blog/help.html", {'form': form})
 
 def successView(request):
     return HttpResponse('Success! Thank you for your message.')

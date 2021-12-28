@@ -23,8 +23,13 @@ import django_heroku
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
+API_SECRET = os.getenv("API_SECRET")
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 EMAIL_ADDRESS = os.environ.get('EMAIL_USER')
 EMAIL_PASSWORD = os.environ.get('EMAIL_PASS')
@@ -170,7 +175,6 @@ django_heroku.settings(locals())
 
 cloudinary.config( 
   cloud_name = "dntx9ehds", 
-  api_key = "646947548162925", 
-  api_secret = "Ycp2wBI7hxz2vhj4ls9GSSe2OPU",
-  secure = true
+  api_key = '646947548162925',
+  api_secret = API_SECRET
 )

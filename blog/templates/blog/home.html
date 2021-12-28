@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %}
+
 {% block tabtitle %} 
 <title>La Journal | Home</title>
 {% endblock tabtitle %}
@@ -15,6 +16,8 @@
                 <!-- Product image-->
                 {% if post.author.profile.profile_pic %}
                     <img class="card-img-top" src="{{ post.author.profile.profile_pic.url }}" alt="..." />
+                   
+
                 {% endif %}
                 <div class="card-body p-4">
                     <div class="text-center card-body-text">

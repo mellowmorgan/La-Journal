@@ -20,12 +20,15 @@ Debug to False
 import os
 from pathlib import Path
 import django_heroku
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 EMAIL_ADDRESS = os.environ.get('EMAIL_USER')
 EMAIL_PASSWORD = os.environ.get('EMAIL_PASS')
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Build paths inside the project like this: 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -49,10 +52,12 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
+    'cloudinary'
 ]
 
 MIDDLEWARE = [
@@ -137,19 +142,13 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# STATIC_ROOT = os.path.join(BASE_DIR, "live-static-files", "static-root") -commented 12/27 and replaced with above
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-#STATIC_ROOT = "/home/cfedeploy/webapps/cfehome_static_root/"
 
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", "media-root")
-# STATIC_URL = '/static/'
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 CRISPY_TEMPLATE_PACK='bootstrap4'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
@@ -164,11 +163,14 @@ DEFAULT_FROM_EMAIL = 'bambigirlpdx@gmail.com'
 
 LOGIN_REDIRECT_URL='site-home'
 LOGIN_URL = 'login'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# MEDIA_URL = '/media/'
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Activate Django-Heroku.
 django_heroku.settings(locals())
+
+cloudinary.config( 
+  cloud_name = "dntx9ehds", 
+  api_key = "646947548162925", 
+  api_secret = "Ycp2wBI7hxz2vhj4ls9GSSe2OPU",
+  secure = true
+)

@@ -28,5 +28,4 @@ sqlparse==0.4.1
 Werkzeug==2.0.1
 cloudinary==0.2.1
 python-dotenv==0.19.2
-poster==0.8.1
 wsgiref==0.1.2

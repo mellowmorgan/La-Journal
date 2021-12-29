@@ -61,7 +61,8 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
-    'cloudinary'
+    'cloudinary',
+    'cloudinary_storage'
 ]
 
 MIDDLEWARE = [
@@ -141,10 +142,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, "static"),
-# )
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 
@@ -169,8 +170,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Activate Django-Heroku.
 django_heroku.settings(locals())
 
-cloudinary.config( 
-  cloud_name = "dntx9ehds", 
-  api_key = '646947548162925',
-  api_secret = 'Ycp2wBI7hxz2vhj4ls9GSSe2OPU'
-)
+CLOUDINARY_STORAGE = {
+  'CLOUD_NAME': 'dntx9ehds', 
+  'API_KEY': '646947548162925',
+  'API_SECRET': 'Ycp2wBI7hxz2vhj4ls9GSSe2OPU'
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

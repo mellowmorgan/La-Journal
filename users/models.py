@@ -4,6 +4,8 @@ from PIL import ExifTags, ImageOps
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 class Profile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	# profile_pic = models.ImageField(upload_to='profile-pics', blank=True)

@@ -25,14 +25,18 @@ import cloudinary.uploader
 import cloudinary.api
 from dotenv import load_dotenv
 import os
+import environ
+# load_dotenv()
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
 
-load_dotenv()
-API_SECRET = os.getenv("API_SECRET")
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-EMAIL_ADDRESS = os.environ.get('EMAIL_USER')
-EMAIL_PASSWORD = os.environ.get('EMAIL_PASS')
+EMAIL_ADDRESS = env('EMAIL_USER')
+EMAIL_PASSWORD = env('EMAIL_PASS')
 # Build paths inside the project like this: 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -163,6 +167,9 @@ EMAIL_HOST_USER = EMAIL_ADDRESS
 EMAIL_HOST_PASSWORD = EMAIL_PASSWORD
 DEFAULT_FROM_EMAIL = 'bambigirlpdx@gmail.com'
 
+
+
+
 LOGIN_REDIRECT_URL='site-home'
 LOGIN_URL = 'login'
 
@@ -170,9 +177,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Activate Django-Heroku.
 django_heroku.settings(locals())
 
-CLOUDINARY_STORAGE = {
-  'CLOUD_NAME': 'dntx9ehds', 
-  'API_KEY': '646947548162925',
-  'API_SECRET': 'Ycp2wBI7hxz2vhj4ls9GSSe2OPU'
-}
+# CLOUDINARY_STORAGE = {
+#   'CLOUD_NAME': 'dntx9ehds', 
+#   'API_KEY': '646947548162925',
+#   'API_SECRET': 'Ycp2wBI7hxz2vhj4ls9GSSe2OPU',
+# }
+cloudinary.config(
+    cloud_name = 'dntx9ehds', 
+    api_key ='646947548162925',
+    api_secret = 'Ycp2wBI7hxz2vhj4ls9GSSe2OPU',
+)
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
-
+from django import forms
+from django.conf import settings
+from django.core.mail import send_mail
 from django_journal_project.settings import EMAIL_ADDRESS, EMAIL_PASSWORD
 from .models import Post
 import os
@@ -36,8 +38,7 @@ def contactView(request):
 			from_email = form.cleaned_data['from_email']
 			message = form.cleaned_data['message']
 			try:
-				email = EmailMessage(subject, message, 'bambigirlpdx@gmail.com',['bambigirlpdx@gmail.com'])
-				email.send()
+				send_mail(subject+" from: "+from_email, message, from_email,[settings.EMAIL_HOST_USER])
 				messages.success(request, "Thank you for contacting us. Your email has been sent.")
 				return redirect('site-help')
 			except SMTPResponseException as e:

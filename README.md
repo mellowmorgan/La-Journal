@@ -24,6 +24,8 @@ https://journal-django-project.herokuapp.com/
 ## Set Up/Installation
 * git clone this repository.
 * navigate into top-level of directory
+* Change email host to be your own in settings.py and make sure less secure apps are turned on and acquire app password
+* touch .env and put in environment variable for EMAIL_PASS like so: EMAIL_PASS=app_password_goes_here_no_quotes
 * pip install -r requirements.txt
 * python3 manage.py runserver
 * terminal should start server then will say something akin to: "Starting development server at http://127.0.0.1:8000/"

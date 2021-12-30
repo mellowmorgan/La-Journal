@@ -2,24 +2,24 @@
 
 By Morgan Waites
 
-Site for making blog posts showing CRUD functionality with user accounts and blog posts.
+Site for making blog posts showing CRUD functionality with user accounts and blog posts, email server set up and image hosting through Cloudinary. Live on Heroku free server.
 
 *In development currently*
 
-See it here: 
-
+See it here!
 https://journal-django-project.herokuapp.com/ 
 
 ## Technologies Used
 * Python
 * Django framework
 * Bootstrap/HTML/CSS/Javascript
-* SQLite database
+* SQLite database for dev, Postgres for production
+* Cloudinary for image storage, image upload
 
-## Known bugs
-* Email server for getting new password not set up.
-* HTML/CSS is v ugly on some parts of website; needs tweaking with styling.
-* Need to add feature to delete accounts
+## Known bugs or things to improve/add
+* Not a bug but... needs tweaking with styling and image transformations... further exploration with Cloudinary.
+* Need to add feature to let user delete accounts.
+* Code is messy
 
 ## Set Up/Installation
 * git clone this repository.

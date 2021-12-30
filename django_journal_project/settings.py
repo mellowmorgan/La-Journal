@@ -177,14 +177,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Activate Django-Heroku.
 django_heroku.settings(locals())
 
-# CLOUDINARY_STORAGE = {
-#   'CLOUD_NAME': 'dntx9ehds', 
-#   'API_KEY': '646947548162925',
-#   'API_SECRET': 'Ycp2wBI7hxz2vhj4ls9GSSe2OPU',
-# }
-cloudinary.config(
-    cloud_name = 'dntx9ehds', 
-    api_key ='646947548162925',
-    api_secret = 'Ycp2wBI7hxz2vhj4ls9GSSe2OPU',
-)
+CLOUDINARY_STORAGE = {
+  'CLOUD_NAME': 'dntx9ehds', 
+  'API_KEY': '646947548162925',
+  'API_SECRET': 'Ycp2wBI7hxz2vhj4ls9GSSe2OPU',
+}
+# cloudinary.config(
+#     cloud_name = 'dntx9ehds', 
+#     api_key ='646947548162925',
+#     api_secret = 'Ycp2wBI7hxz2vhj4ls9GSSe2OPU',
+# )
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
